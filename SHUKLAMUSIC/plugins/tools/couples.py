@@ -20,9 +20,23 @@ from pyrogram import *
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.enums import *
 
-#BOT FILE NAME
 from SHUKLAMUSIC import app as app
 from SHUKLAMUSIC.mongo.couples_db import _get_image, get_couple
+
+# ── AttractivePack emoji IDs ──
+_AP_PINK   = 5208942800514596941   # 🩷
+_AP_LOVE   = 5220157149103023925   # 💖
+_AP_LILAC  = 5366119022792294762   # 💜
+_AP_BLUE   = 5379853726909486003   # 💙
+_AP_FLOWER = 5366458509892276868   # 🌸
+_AP_STAR   = 5413351005779672594   # ⭐
+_AP_BOW    = 5379869575338812919   # 🎀
+_AP_YELLOW = 5363897614167199267   # 💛
+_AP_GREEN  = 5366596996817766990   # 💚
+_AP_SPARK  = 5343528160535270636   # ⚡️
+
+def ap(eid, fb):
+    return f'<emoji id={eid}>{fb}</emoji>'
 
 POLICE = [
     [
@@ -118,13 +132,12 @@ async def ctest(_, message):
 
          img.save(f'test_{cid}.png')
     
-         TXT = f"""
-**ᴛᴏᴅᴀʏ's ᴄᴏᴜᴘʟᴇ ᴏғ ᴛʜᴇ ᴅᴀʏ :
-
-{N1} + {N2} = 💚
-
-ɴᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ {tomorrow} !!**
-"""
+         TXT = (
+             f"{ap(_AP_LOVE,'💖')} {ap(_AP_PINK,'🩷')} <b>ᴛᴏᴅᴀʏ's ᴄᴏᴜᴘʟᴇ ᴏғ ᴛʜᴇ ᴅᴀʏ</b> {ap(_AP_PINK,'🩷')} {ap(_AP_LOVE,'💖')}\n\n"
+             f"{ap(_AP_FLOWER,'🌸')} {N1} <b>+</b> {N2}\n"
+             f"{ap(_AP_STAR,'⭐')} = {ap(_AP_GREEN,'💚')} {ap(_AP_LILAC,'💜')} {ap(_AP_BLUE,'💙')}\n\n"
+             f"{ap(_AP_BOW,'🎀')} <i>ɴᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ</i> <code>{tomorrow}</code>"
+         )
     
          await message.reply_photo(f"test_{cid}.png", caption=TXT, reply_markup=InlineKeyboardMarkup(POLICE),
     )
