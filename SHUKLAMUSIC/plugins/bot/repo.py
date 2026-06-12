@@ -54,7 +54,7 @@ async def start(_, msg):
         [
             InlineKeyboardButton(
                 text="˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑",
-                url="https://t.me/Egoist_Destroyer",
+                url="https://t.me/Your_fucker_dad",
                 style=ButtonStyle.DANGER,
                 icon_custom_emoji_id=_E_GLOW,
             ),
