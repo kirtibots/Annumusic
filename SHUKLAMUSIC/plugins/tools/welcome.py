@@ -30,12 +30,28 @@ from SHUKLAMUSIC.utils.Shukla_ban import admin_filter
 
 LOGGER = getLogger(__name__)
 
+# ── Statusvideobytaraxd pack IDs (@stickerXtara) ──
+_TX_STAR   = 6298332994260175589   # ⭐️
+_TX_HEART  = 6298356878573307709   # ❤️
+_TX_OK     = 6296501388276926215   # ✅
+_TX_CROWN  = 6219549292458150316   # 👑
+_TX_SPARK  = 6255705323588290387   # 💫
+_TX_BOOM   = 6298644001432012664   # 💥
+_TX_HUG    = 6298454498884978957   # 🫶
+_TX_LOVE   = 6298335558355651118   # 😍
+_TX_GEM    = 6244241334320762892   # 💎
+_TX_ROSE   = 6102617459204822706   # 🌹
+
+def tx(eid, fb):
+    return f'<emoji id={eid}>{fb}</emoji>'
+
 random_photo = [
     "https://telegra.ph/file/1949480f01355b4e87d26.jpg",
     "https://telegra.ph/file/3ef2cc0ad2bc548bafb30.jpg",
     "https://telegra.ph/file/a7d663cd2de689b811729.jpg",
     "https://telegra.ph/file/6f19dc23847f5b005e922.jpg",
     "https://telegra.ph/file/2973150dd62fd27a3a6ba.jpg",
+    "https://i.ibb.co/rRXc8MGR/image.jpg",
 ]
 
 # --------------------------------------------------------------------------------- #
@@ -156,20 +172,17 @@ async def greet_new_member(_, member: ChatMemberUpdated):
             msg = await app.send_photo(
                 chat_id,
                 photo=welcomeimg,
-                caption=f"""
-**⎊─────☵ ᴡᴇʟᴄᴏᴍᴇ ☵─────⎊**
-
-**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**
-
-**☉ ɴᴀᴍᴇ ⧽** {user.mention}
-**☉ ɪᴅ ⧽** `{user.id}`
-**☉ ᴜ_ɴᴀᴍᴇ ⧽** @{user.username if user.username else 'None'}
-**☉ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ⧽** {count}
-
-**▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬**
-
-**⎉──────▢✭ 侖 ✭▢──────⎉**
-""",
+                caption=(
+                    f"{tx(_TX_STAR,'⭐️')} {tx(_TX_BOOM,'💥')} <b>ᴡᴇʟᴄᴏᴍᴇ</b> {tx(_TX_BOOM,'💥')} {tx(_TX_STAR,'⭐️')}\n\n"
+                    f"{tx(_TX_HEART,'❤️')} {tx(_TX_GEM,'💎')} <b>▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬</b> {tx(_TX_GEM,'💎')} {tx(_TX_HEART,'❤️')}\n\n"
+                    f"{tx(_TX_CROWN,'👑')} <b>ɴᴀᴍᴇ :</b> {user.mention}\n"
+                    f"{tx(_TX_SPARK,'💫')} <b>ɪᴅ :</b> <code>{user.id}</code>\n"
+                    f"{tx(_TX_ROSE,'🌹')} <b>ᴜ_ɴᴀᴍᴇ :</b> @{user.username if user.username else 'None'}\n"
+                    f"{tx(_TX_OK,'✅')} <b>ᴍᴇᴍʙᴇʀs :</b> {count}\n\n"
+                    f"{tx(_TX_HUG,'🫶')} {tx(_TX_LOVE,'😍')} <b>▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬</b> {tx(_TX_LOVE,'😍')} {tx(_TX_HUG,'🫶')}\n\n"
+                    f"{tx(_TX_ROSE,'🌹')} {tx(_TX_GEM,'💎')} {tx(_TX_STAR,'⭐️')} {tx(_TX_HEART,'❤️')} {tx(_TX_SPARK,'💫')}"
+                ),
+                parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton(button_text, url=deep_link)],
                     [InlineKeyboardButton(text=add_button_text, url=add_link)],
