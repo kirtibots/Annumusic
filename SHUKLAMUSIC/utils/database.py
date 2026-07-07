@@ -50,6 +50,8 @@ pause = {}
 playmode = {}
 playtype = {}
 skipmode = {}
+autoplay = {}
+autoplay_owner = {}
 
 
 async def get_assistant_number(chat_id: int) -> str:
@@ -236,6 +238,24 @@ async def get_loop(chat_id: int) -> int:
 
 async def set_loop(chat_id: int, mode: int):
     loop[chat_id] = mode
+
+
+async def get_autoplay(chat_id: int) -> bool:
+    return bool(autoplay.get(chat_id, False))
+
+
+async def set_autoplay(chat_id: int, mode: bool):
+    autoplay[chat_id] = mode
+    if not mode:
+        autoplay_owner.pop(chat_id, None)
+
+
+async def get_autoplay_owner(chat_id: int) -> int:
+    return autoplay_owner.get(chat_id)
+
+
+async def set_autoplay_owner(chat_id: int, user_id: int):
+    autoplay_owner[chat_id] = user_id
 
 
 async def get_cmode(chat_id: int) -> int:
