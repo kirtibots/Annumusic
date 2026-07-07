@@ -125,3 +125,68 @@ HELP_15 = """<b><u>sᴘᴇᴇᴅ ᴄᴏᴍᴍᴀɴᴅs :</u></b> [ᴀᴅᴍɪɴ 
 • /speed or /playback : ᴀᴅᴊᴜsᴛs ᴀᴜᴅɪᴏ sᴘᴇᴇᴅ ɪɴ ɢʀᴏᴜᴩs.  
 • /cspeed or /cplayback : ᴀᴅᴊᴜsᴛs ᴀᴜᴅɪᴏ sᴘᴇᴇᴅ ɪɴ ᴄʜᴀɴɴᴇʟs.
 """
+
+HELP_16 = """<b><u>ᴄʜᴀᴛғɪɢʜᴛ ɢᴀᴍᴇs :</u></b>
+
+Fun word / emoji / flag guessing mini-games with a global leaderboard.
+
+• /wordgame or /cfword : sᴛᴀʀᴛs ᴀ ᴡᴏʀᴅ ɢᴜᴇssɪɴɢ ɢᴀᴍᴇ.
+• /emojigame or /cfemoji : sᴛᴀʀᴛs ᴀɴ ᴇᴍᴏᴊɪ ɢᴜᴇssɪɴɢ ɢᴀᴍᴇ.
+• /flaggame or /cfflag : sᴛᴀʀᴛs ᴀ ғʟᴀɢ ɢᴜᴇssɪɴɢ ɢᴀᴍᴇ.
+• /wordleaderboard or /gametop or /cflb : sʜᴏᴡs ᴛʜᴇ ɢʟᴏʙᴀʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ.
+
+Games also start automatically after 5 minutes of chat inactivity to keep the group active.
+"""
+
+HELP_17 = """<b><u>ɢɪᴛʜᴜʙ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ :</u></b>
+
+Convert repos to ZIP, push ZIPs to your repo, and manage your GitHub account — all from Telegram.
+
+• /setghtoken [token] : sᴀᴠᴇs ʏᴏᴜʀ ɢɪᴛʜᴜʙ ᴛᴏᴋᴇɴ (ᴅᴍ ᴏɴʟʏ).
+• /mytoken : ᴄʜᴇᴄᴋs ɪғ ᴀ ᴛᴏᴋᴇɴ ɪs sᴀᴠᴇᴅ.
+• /removetoken : ʀᴇᴍᴏᴠᴇs ʏᴏᴜʀ sᴀᴠᴇᴅ ᴛᴏᴋᴇɴ.
+• /repo2zip [owner/repo] [branch] : ᴅᴏᴡɴʟᴏᴀᴅs ᴀɴʏ ᴘᴜʙʟɪᴄ ʀᴇᴘᴏ ᴀs ᴀ ᴢɪᴘ.
+• /pushzip [owner/repo] [branch] : (ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴢɪᴘ) ᴘᴜsʜᴇs ɪᴛs ᴄᴏɴᴛᴇɴᴛs ᴛᴏ ʏᴏᴜʀ ʀᴇᴘᴏ.
+• /myrepos : ʟɪsᴛs ʏᴏᴜʀ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs.
+• /creategh [name] : ᴄʀᴇᴀᴛᴇs ᴀ ɴᴇᴡ ʀᴇᴘᴏsɪᴛᴏʀʏ.
+• /ghinfo [owner/repo] : sʜᴏᴡs ʀᴇᴘᴏ ɪɴғᴏ.
+• /ghfiles [owner/repo] [path] : ʟɪsᴛs ғɪʟᴇs ɪɴ ᴀ ʀᴇᴘᴏ ᴘᴀᴛʜ.
+• /delghfile [owner/repo] [path] : ᴅᴇʟᴇᴛᴇs ᴀ ғɪʟᴇ ғʀᴏᴍ ᴀ ʀᴇᴘᴏ.
+• /delgh [owner/repo] : ᴅᴇʟᴇᴛᴇs ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ.
+"""
+
+HELP_18 = """<b><u>ᴄʜᴀᴛʙᴏᴛ :</u></b>
+
+A MongoDB-powered auto-reply chatbot — no external AI API used.
+
+• /chatbot on/off : ᴇɴᴀʙʟᴇs ᴏʀ ᴅɪsᴀʙʟᴇs ᴀᴜᴛᴏ-ʀᴇᴘʟʏ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ (ᴀᴅᴍɪɴ ᴏɴʟʏ).
+• /teach [keyword] | [reply] : ᴛᴇᴀᴄʜᴇs ᴛʜᴇ ʙᴏᴛ ᴀ ɴᴇᴡ ʀᴇᴘʟʏ (ᴀᴅᴍɪɴ ᴏɴʟʏ).
+• /unlearn [keyword] : ʀᴇᴍᴏᴠᴇs ᴀ ᴛᴀᴜɢʜᴛ ʀᴇᴘʟʏ (ᴀᴅᴍɪɴ ᴏɴʟʏ).
+• /learned : ʟɪsᴛs ᴇᴠᴇʀʏᴛʜɪɴɢ ʟᴇᴀʀɴᴇᴅ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
+"""
+
+HELP_19 = """🎮 <b><u>ɢʀᴏᴜᴘ ɢᴀᴍᴇs :</u></b>
+
+ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴘʟᴀʏ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ ɢᴀᴍᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ!
+
+🎲 <b>ᴅɪᴄᴇ ʙᴀᴛᴛʟᴇ</b>
+• /dicebattle — sᴛᴀʀᴛ ᴀ ɢʀᴏᴜᴘ ᴅɪᴄᴇ ʀᴏʟʟɪɴɢ ʙᴀᴛᴛʟᴇ. ᴇᴠᴇʀʏᴏɴᴇ ᴊᴏɪɴs, ʜɪɢʜᴇsᴛ ʀᴏʟʟ ᴡɪɴs!
+
+💣 <b>ɴᴜᴍʙᴇʀ ʙᴏᴍʙ</b>
+• /numberbomb — ᴘɪᴄᴋ ᴀ ɴᴜᴍʙᴇʀ 1–20. ᴏɴᴇ ɪs ᴛʜᴇ ʙᴏᴍʙ. ᴅᴏɴ'ᴛ ᴇxᴘʟᴏᴅᴇ!
+
+🎡 <b>ʀᴜssɪᴀɴ ʀᴏᴜʟᴇᴛᴛᴇ</b>
+• /roulette — sᴛᴀʀᴛ ᴀ ɢʀᴏᴜᴘ ʀᴏᴜʟᴇᴛᴛᴇ. ᴇᴀᴄʜ ᴘʟᴀʏᴇʀ ᴘᴜʟʟs ᴛʜᴇ ᴛʀɪɢɢᴇʀ ɪɴ ᴛᴜʀɴ.
+
+🏆 <b>ᴛʀɪᴠɪᴀ ʙᴀᴛᴛʟᴇ ʀᴏʏᴀʟᴇ</b>
+• /triviabattle ᴏʀ /battle — sᴛᴀʀᴛ ᴀ 5-ʀᴏᴜɴᴅ ᴍᴜʟᴛɪᴘʟᴀʏᴇʀ ǫᴜɪᴢ. ᴇᴠᴇʀʏᴏɴᴇ ᴊᴏɪɴs, ᴀɴsᴡᴇʀ ғᴀsᴛ!
+• /triviatop — ᴠɪᴇᴡ ᴛʜᴇ ɢʟᴏʙᴀʟ ᴛʀɪᴠɪᴀ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ.
+
+🃏 <b>ᴄʜᴀᴛ ᴍɪɴɪ-ɢᴀᴍᴇs</b>
+• /wordgame — ɢᴜᴇss ᴛʜᴇ ᴡᴏʀᴅ (ᴡɪᴛʜ ɪᴍᴀɢᴇ ʜɪɴᴛ).
+• /emojigame — ɢᴜᴇss ᴛʜᴇ ᴇᴍᴏᴊɪ.
+• /flaggame — ɢᴜᴇss ᴛʜᴇ ᴄᴏᴜɴᴛʀʏ ғʀᴏᴍ ɪᴛs ғʟᴀɢ.
+• /gametop — ᴠɪᴇᴡ ᴛʜᴇ ᴡᴏʀᴅɢᴀᴍᴇ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ.
+
+<i>ᴀʟʟ ɢᴀᴍᴇs ᴀʀᴇ ɢʀᴏᴜᴘ-ᴏɴʟʏ ᴀɴᴅ ᴡᴏʀᴋ ᴡɪᴛʜ ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴs.</i>
+"""
