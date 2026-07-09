@@ -77,6 +77,7 @@ class BUTTONS(object):
         ],
         [
             InlineKeyboardButton("🔑 sᴛʀɪɴɢ ɢᴇɴ",  callback_data="mplus HELP_StringGen", style=ButtonStyle.DANGER,   icon_custom_emoji_id=_E_KEY),
+            InlineKeyboardButton("⚡ ǫᴜɪᴄᴋ ɢᴀᴍᴇs", callback_data="mplus HELP_21",        style=ButtonStyle.SUCCESS,  icon_custom_emoji_id=_E_JOKER),
         ],
         [
             InlineKeyboardButton("◁", callback_data="settings_back_helper",            style=ButtonStyle.SUCCESS,  icon_custom_emoji_id=_E_BACK),

@@ -27,38 +27,71 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
+async def _convert_to_wav(mp3_path: str) -> str:
+    """Pre-convert MP3 to 48kHz stereo PCM WAV so pytgcalls streams with zero decode overhead."""
+    wav_path = mp3_path.replace(".mp3", ".wav")
+    if os.path.exists(wav_path) and os.path.getsize(wav_path) > 0:
+        return wav_path
+    try:
+        proc = await asyncio.create_subprocess_exec(
+            "ffmpeg", "-y",
+            "-i", mp3_path,
+            "-ar", "48000",
+            "-ac", "2",
+            "-acodec", "pcm_s16le",
+            "-threads", "0",
+            wav_path,
+            stdout=asyncio.subprocess.DEVNULL,
+            stderr=asyncio.subprocess.DEVNULL,
+        )
+        await proc.wait()
+        if os.path.exists(wav_path) and os.path.getsize(wav_path) > 0:
+            return wav_path
+    except Exception:
+        pass
+    return mp3_path  # fallback to MP3 if conversion fails
+
+
 async def download_song(link: str) -> str:
     video_id = link.split("v=")[-1].split("&")[0] if "v=" in link else link
     if not video_id or len(video_id) < 3:
         return None
 
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-    file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.mp3")
-    if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-        return file_path
+    mp3_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.mp3")
+    wav_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.wav")
 
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(
-                f"{API_URL}/download",
-                params={"url": video_id, "type": "audio", "api_key": API_KEY},
-                timeout=aiohttp.ClientTimeout(total=300)
-            ) as resp:
-                if resp.status != 200:
-                    return None
-                with open(file_path, "wb") as f:
-                    async for chunk in resp.content.iter_chunked(131072):
-                        f.write(chunk)
-        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-            return file_path
-        return None
-    except Exception:
-        if os.path.exists(file_path):
-            try:
-                os.remove(file_path)
-            except Exception:
-                pass
-        return None
+    # Return pre-converted WAV if already cached
+    if os.path.exists(wav_path) and os.path.getsize(wav_path) > 0:
+        return wav_path
+
+    # Download MP3 if not cached
+    if not (os.path.exists(mp3_path) and os.path.getsize(mp3_path) > 0):
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    f"{API_URL}/download",
+                    params={"url": video_id, "type": "audio", "api_key": API_KEY},
+                    timeout=aiohttp.ClientTimeout(total=300)
+                ) as resp:
+                    if resp.status != 200:
+                        return None
+                    with open(mp3_path, "wb") as f:
+                        async for chunk in resp.content.iter_chunked(262144):  # 256KB chunks
+                            f.write(chunk)
+        except Exception:
+            if os.path.exists(mp3_path):
+                try:
+                    os.remove(mp3_path)
+                except Exception:
+                    pass
+            return None
+
+        if not (os.path.exists(mp3_path) and os.path.getsize(mp3_path) > 0):
+            return None
+
+    # Pre-convert to WAV for lag-free streaming
+    return await _convert_to_wav(mp3_path)
 
 
 async def download_video(link: str) -> str:

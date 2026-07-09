@@ -206,6 +206,14 @@ def help_pannel(_, START: Union[bool, int] = None):
                     icon_custom_emoji_id=_E_KEY,
                 ),
             ],
+            [
+                InlineKeyboardButton(
+                    text="⚡ ǫᴜɪᴄᴋ ɢᴀᴍᴇs",
+                    callback_data="help_callback hb21",
+                    style=ButtonStyle.SUCCESS,
+                    icon_custom_emoji_id=_E_GAMES,
+                ),
+            ],
             mark,
         ]
     )
