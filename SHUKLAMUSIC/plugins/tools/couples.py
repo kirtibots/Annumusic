@@ -41,8 +41,8 @@ def ap(eid, fb):
 POLICE = [
     [
         InlineKeyboardButton(
-            text="Mᴀᴅᴀʀᴀ",
-            url=f"https://t.me/Egoist_Destroyer",
+            text="˹ᴋɪʀᴛɪ ʙᴏᴛꜱ˼",
+            url=f"https://t.me/annu_updates",
         ),
     ],
 ]
