@@ -114,7 +114,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 return await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"âœ¦ {message.from_user.mention} á´Šá´œsá´› sá´›á´€Ê€á´›á´‡á´… á´›Êœá´‡ Ê™á´á´› á´›á´ á´„Êœá´‡á´„á´‹ <b>á´›Ê€á´€á´„á´‹ ÉªÉ´Ò“á´Ê€á´á´€á´›Éªá´É´</b>.\n\nâœ¦ <b>á´œsá´‡Ê€ Éªá´… âž </b> <code>{message.from_user.id}</code>\nâœ¦ <b>á´œsá´‡Ê€É´á´€á´á´‡ âž </b> @{message.from_user.username}",
+                    text=f"✦ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>✦ ᴜsᴇʀ ɪᴅ ➠</b> <code>{message.from_user.id}</code>\n<b>✦ ᴜsᴇʀɴᴀᴍᴇ ➠</b> @{message.from_user.username}",
                 )
                 
     else:
@@ -128,7 +128,7 @@ async def start_pm(client, message: Message, _):
         if await is_on_off(2):
             return await app.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"âœ¦ {message.from_user.mention} á´Šá´œsá´› sá´›á´€Ê€á´›á´‡á´… á´›Êœá´‡ Ê™á´á´›.\n\nâœ¦ <b>á´œsá´‡Ê€ Éªá´… âž </b> <code>{message.from_user.id}</code>\nâœ¦ <b>á´œsá´‡Ê€É´á´€á´á´‡ âž </b> @{message.from_user.username}",
+                text=f"✦ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n✦ <b>ᴜsᴇʀ ɪᴅ ➠</b> <code>{message.from_user.id}</code>\n✦ <b>ᴜsᴇʀɴᴀᴍᴇ ➠</b> @{message.from_user.username}",
             )
 
 
