@@ -13,12 +13,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from py_yt import VideosSearch
 
 import config
-from ShiviMusic import app
-from ShiviMusic.misc import _boot_
-from ShiviMusic.plugins.sudo.sudoers import sudoers_list
-from ShiviMusic.utils.database import get_served_chats, get_served_users
-from ShiviMusic.utils import bot_sys_stats
-from ShiviMusic.utils.database import (
+from SHUKLAMUSIC import app
+from SHUKLAMUSIC.misc import _boot_
+from SHUKLAMUSIC.plugins.sudo.sudoers import sudoers_list
+from SHUKLAMUSIC.utils.database import get_served_chats, get_served_users
+from SHUKLAMUSIC.utils import bot_sys_stats
+from SHUKLAMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
@@ -26,14 +26,14 @@ from ShiviMusic.utils.database import (
     is_banned_user,
     is_on_off,
 )
-from ShiviMusic.utils.decorators.language import LanguageStart
-from ShiviMusic.utils.formatters import get_readable_time
-from ShiviMusic.utils.inline import help_pannel, private_panel, start_panel
+from SHUKLAMUSIC.utils.decorators.language import LanguageStart
+from SHUKLAMUSIC.utils.formatters import get_readable_time
+from SHUKLAMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
 
-shivi_PIC = [
+shukla_PIC = [
     "https://d.uguu.se/AHWUtCcF.jpg",
     "https://h.uguu.se/oCKonQPF.jpg",
     "https://o.uguu.se/ZKmYOtBA.jpg",
@@ -63,7 +63,7 @@ async def start_pm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             return await message.reply_photo(
-                random.choice(shivi_PIC),
+                random.choice(shukla_PIC),
                 has_spoiler=True,
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
@@ -120,7 +120,7 @@ async def start_pm(client, message: Message, _):
     else:
         out = private_panel(_)
         await message.reply_photo(
-            random.choice(shivi_PIC),
+            random.choice(shukla_PIC),
             has_spoiler=True,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
@@ -138,7 +138,7 @@ async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
-        random.choice(shivi_PIC),
+        random.choice(shukla_PIC),
         has_spoiler=True,
         caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
